@@ -3,7 +3,7 @@ fastapi==0.110.0
 uvicorn[standard]==0.29.0
 python-dotenv==1.0.1
 
-# Image Processing & Media (Mediapipe 호환성 추가)
+# Image Processing & Media
 opencv-python==4.9.0.80
 mediapipe==0.10.14
 protobuf==4.25.3

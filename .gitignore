@@ -1,0 +1,44 @@
+# === 가상환경 및 패키지 관리 ===
+venv/
+.venv/
+env/
+bin/
+include/
+lib/
+share/
+pyvenv.cfg
+
+# === 파이썬 관련 캐시 ===
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+
+# === 보안 및 환경 설정 (가장 중요!) ===
+.env
+.flaskenv
+*.key
+*.cert
+*.pem
+secrets.json
+
+# === 운영체제 및 IDE 설정 ===
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === 데이터베이스 및 로그 (RAG/Vector DB 포함) ===
+*.log
+*.sqlite3
+data/
+db/
+vector_db/
+
+# === 빌드 및 배포 관련 ===
+dist/
+build/
+*.egg-info/

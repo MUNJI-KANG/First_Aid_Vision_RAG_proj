@@ -12,15 +12,16 @@ function App(){
     const captureAndAnalyze = useCallback(async () => {
         const imageSrc = webcamRef.current.getScreenshot();
         if(!imageSrc) return;
+        setLoading(true);
 
         try{
             // 이미지를 서버가 받을 수 있는 blob으로 변환
-            const blob = await fetch(imsageSrc).then((res) => res.blob());
+            const blob = await fetch(imageSrc).then((res) => res.blob());
             const formData = new FormData();
             formData.append('file', blob, 'capture.jpg');
 
             // 백엔드 호출
-            const response = await axios.post('httpL//127.0.0.1:8000/analyze', formData, {
+            const response = await axios.post('http://127.0.0.1:8000/analyze', formData, {
                 headers: {'Content-Type': 'multipart/form-data'},
             });
             setResult(response.data);
@@ -44,6 +45,7 @@ function App(){
                     ref={webcamRef}
                     screenshotFormat="image/jpeg"
                     className="webcam-view"
+                    mirrored={true}
                     />
                     <button className="capture-btn" onClick={captureAndAnalyze} disabled={loading}>
                     {loading ? "AI 분석 중..." : "응급 상황 분석 요청"}

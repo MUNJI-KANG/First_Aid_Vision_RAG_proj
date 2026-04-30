@@ -1,17 +1,21 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
 from functools import lru_cache
 
-class Settings(BaseSettings):
-    # .env 파일에 작성하신 변수명과 정확히 일치해야 합니다.
-    OPENAI_API_KEY: str
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
-    # backend/ 폴더에 있는 .env 파일을 읽어오도록 설정
+
+class Settings(BaseSettings):
+    OPENAI_API_KEY: str
+    VISION_MODEL: str = "gpt-4o"
+    EMBEDDING_MODEL: str = "text-embedding-3-small"
+    EMBEDDING_BATCH_SIZE: int = 16
+    OPENAI_BASE_URL: str | None = None
+
     model_config = SettingsConfigDict(env_file=".env")
 
+
 @lru_cache()
-def get_settings():
-    """설정 객체를 생성하고 캐싱합니다."""
+def get_settings() -> Settings:
     return Settings()
 
-# !!! 중요: 이 줄이 있어야 main.py에서 'from app.config import settings'가 가능합니다.
+
 settings = get_settings()

@@ -7,9 +7,15 @@
 
 First_Aid_VIsion_RAG/backend/.env
 First_Aid_VIsion_RAG/backend/*.log
+First_Aid_VIsion_RAG/backend/chroma_index/
+First_Aid_VIsion_RAG/backend/faiss_index/
 First_Aid_VIsion_RAG/backend/data/
 First_Aid_VIsion_RAG/backend/db/
 First_Aid_VIsion_RAG/backend/assets/*.pdf
+backend_8001.*.log
+backend_live.*.log
+tiny_test.jpg
+merge_backup_generated/
 
 # === Frontend / Node ===
 **/node_modules/
@@ -30,5 +36,3 @@ First_Aid_VIsion_RAG/backend/assets/*.pdf
 .DS_Store
 Thumbs.db
 
-# === Batch Files ===
-*.bat
